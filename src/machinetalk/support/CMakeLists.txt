@@ -1,0 +1,25 @@
+add_executable(sizes sizes.c)
+add_dependencies(sizes npb_gen_files)
+_install(sizes)
+
+foreach(file encdec position linmove)
+    add_executable(${file} ${file}.cc)
+    target_link_libraries(${file} mktalk-pb2++)
+    target_compile_definitions(${file} PRIVATE PB_FIELD_32BIT)
+    _install(${file})
+endforeach()
+
+target_link_libraries(encdec mtalk mkini)
+target_link_libraries(linmove mtalk mkini)
+
+add_executable(unionread unionread.c $<TARGET_OBJECTS:nanopb>)
+target_compile_definitions(unionread PRIVATE PB_FIELD_32BIT)
+_install(unionread)
+
+foreach(file rtprintf npbdecode)
+    add_executable(${file} ${file}.c)
+    target_link_libraries(${file} mktalk-npb)
+    target_compile_definitions(${file} PRIVATE PB_FIELD_32BIT)
+    _install(${file})
+endforeach()
+target_compile_definitions(rtprintf PRIVATE ULAPI)

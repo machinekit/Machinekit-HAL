@@ -333,16 +333,16 @@ def prologue(f):
 
 
     f.write("""\
-#include "rtapi.h"
+#include <rtapi.h>
 #ifdef RTAPI
-#include "rtapi_app.h"
+#include <rtapi_app.h>
 #endif
-#include "rtapi_string.h"
-#include "rtapi_errno.h"
-#include "hal.h"
-#include "hal_priv.h"
-#include "hal_accessor.h"
-#include "hal_internal.h"
+#include <rtapi_string.h>
+#include <rtapi_errno.h>
+#include <hal.h>
+#include <hal_priv.h>
+#include <hal_accessor.h>
+#include <hal_internal.h>
 \nstatic int comp_id;
 \n""")
     for value in userdef_includes:
@@ -1061,7 +1061,7 @@ def find_modinc():
     global modinc
     if modinc: return modinc
     d = os.path.abspath(os.path.dirname(os.path.dirname(sys.argv[0])))
-    for e in ['src', 'etc/linuxcnc', '/etc/linuxcnc', 'share/linuxcnc']:
+    for e in ['src', 'etc/machinekit', '/etc/machinekit', 'share/machinekit']:
         e = os.path.join(d, e, 'Makefile.modinc')
         if os.path.exists(e):
             modinc = e

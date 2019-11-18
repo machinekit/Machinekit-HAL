@@ -1,14 +1,15 @@
 // example for message creation
 
+#include <stdio.h>
 #include <iostream>
 #include <string>
 
 #include <google/protobuf/text_format.h>
 
-#include <machinetalk/protobuf/types.pb.h>
-#include <machinetalk/protobuf/canon.pb.h>
-#include <machinetalk/protobuf/emcclass.pb.h>
-#include <machinetalk/protobuf/message.pb.h>
+#include <protobuf/types.pb.h>
+#include <protobuf/canon.pb.h>
+#include <protobuf/emcclass.pb.h>
+#include <protobuf/message.pb.h>
 
 #include <json2pb.hh>
 

@@ -42,10 +42,10 @@
     information, go to www.linuxcnc.org.
 */
 
-#include "config.h"
+#include <config.h>
 
 #ifndef NO_INI
-#include "inifile.h"		/* iniFind() from libnml */
+#include <inifile.h>		/* iniFind() from libnml */
 FILE *halcmd_inifile = NULL;
 #endif
 
@@ -63,9 +63,9 @@ FILE *halcmd_inifile = NULL;
 #include <fnmatch.h>
 #include <search.h>
 
-#include "rtapi.h"		/* RTAPI realtime OS API */
-#include "hal.h"		/* HAL public API decls */
-#include "hal_priv.h"	/* private HAL decls */
+#include <rtapi.h>		/* RTAPI realtime OS API */
+#include <hal.h>		/* HAL public API decls */
+#include <hal_priv.h>	/* private HAL decls */
 #include "halcmd_commands.h"
 #include "halcmd_rtapiapp.h"
 
@@ -139,7 +139,7 @@ int halcmd_startup(int quiet, char *uri, const char *svc_uuid) {
             fprintf(stderr, "halcmd: cant connect to rtapi_app: %d (uri=%s uuid=%s): %s\n\n",
 		    retval, uri ? uri:"", svc_uuid, rtapi_rpcerror());
 
-	    char *logfile = "/var/log/linuxcnc.log";
+	    char *logfile = "/var/log/machinekit.log";
 
 	    if (pid_of("rtapi:%d", rtapi_instance) < 0)
 		fprintf(stderr, "halcmd: the rtapi:%d RT demon is not running - please investigate %s\n",
