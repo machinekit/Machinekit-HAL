@@ -38,6 +38,7 @@ Build-Depends:
     uuid-dev,
     uuid-runtime,
     libavahi-client-dev,
+    libcmocka-dev,
     libprotobuf-dev (>= 2.4.1),
     protobuf-compiler (>= 2.4.1),
     python3-protobuf:native,
@@ -49,6 +50,8 @@ Build-Depends:
     yapps2:native,
     python3-yapps:native,
     python3-pyftpdlib:native,
+    python3-pip:native,
+    python3-venv:native,
     libck-dev @BUILDTIME_DEPENDENCIES@
 Standards-Version: 2.1.0
 
